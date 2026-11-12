@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tanren app icon, default (light) appearance: the Planche T on the ember tile.
+  Construction and placement: docs/brand/README.md (mark units x 1.0445, origin at (171, 275)).
+  Full-bleed square, no transparency: the system applies the icon mask.
+  Rendered into the asset catalogs by docs/brand/render-icons.swift.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Tanren app icon">
+  <defs>
+    <linearGradient id="ember" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF7A26"/>
+      <stop offset="1" stop-color="#F23A1B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#ember)"/>
+  <path fill="#17100C" d="M171 352.29 A77.29 77.29 0 0 1 248.29 275 L637.9 275 A38.65 38.65 0 0 1 676.54 313.65 L676.54 390.94 A38.65 38.65 0 0 1 637.9 429.59 L581.84 429.59 A29.25 29.25 0 0 0 552.88 454.76 L507.52 776.9 A18.8 18.8 0 0 1 488.9 793.08 L363.93 793.08 A18.8 18.8 0 0 1 345.32 771.65 L388.79 462.91 A29.25 29.25 0 0 0 359.83 429.59 L248.29 429.59 A77.29 77.29 0 0 1 171 352.29 Z"/>
+  <path fill="#FFF3DC" d="M712.06 352.29 A81.47 81.47 0 1 0 875 352.29 A81.47 81.47 0 1 0 712.06 352.29 Z"/>
+</svg>
