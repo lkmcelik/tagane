@@ -1,7 +1,7 @@
 # tanren-site
 
 Public website for [Tanren](https://lkmcelik.github.io/tanren/), the calisthenics and workout app for iPhone, iPad and
-Apple Watch: home page, privacy policy, terms of use, support and account deletion, in the app's 10 languages.
+Apple Watch: home page, privacy policy, terms of use, support and account deletion, in the app's 11 languages.
 
 Hosted on **GitHub Pages** from `lkmcelik/tanren` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tanren/`.
 No custom domain yet (the brand domain is decided with Tanren's OQ-001).
@@ -13,7 +13,7 @@ No custom domain yet (the brand domain is decided with Tanren's OQ-001).
 ├── src/<lang>/              # SOURCE: strings.json + one HTML fragment per page (the content of <main>)
 ├── tools/build.py           # builds every page from src/ (Python 3, standard library only)
 ├── index.html … *.html      # English pages (generated)
-├── tr/ de/ fr/ es/ pt-BR/ ru/ ar/ ja/ zh-Hans/   # the other languages (generated)
+├── tr/ de/ fr/ es/ it/ pt-BR/ ru/ ar/ ja/ zh-Hans/   # the other languages (generated)
 ├── 404.html, sitemap.xml    # generated
 ├── style.css                # Ember & Iron palette (Tanren ADR-0056), light and dark
 ├── script.js                # closes the language menu on Escape or an outside click
@@ -21,7 +21,7 @@ No custom domain yet (the brand domain is decided with Tanren's OQ-001).
 └── .nojekyll
 ```
 
-Languages: `en` (source, at the root), `tr`, `de`, `fr`, `es`, `pt-BR`, `ru`, `ar` (right to left), `ja`, `zh-Hans`.
+Languages: `en` (source, at the root), `tr`, `de`, `fr`, `es`, `it`, `pt-BR`, `ru`, `ar` (right to left), `ja`, `zh-Hans`.
 Every page has a language menu, `hreflang` alternates and the same structure in every language.
 
 No trackers, no cookies, no external fonts or scripts: everything is served from this repository.
@@ -31,7 +31,7 @@ No trackers, no cookies, no external fonts or scripts: everything is served from
 1. Change the English source in `src/en/` and the same place in every other language in `src/<lang>/`.
    Keep the tags, ids, classes and links identical across languages; only text, `alt`, `title` and `aria-label`
    are translated. Fragments use `{{root}}` for the path to the site root.
-2. When a legal text changes, update its effective date in all 10 languages.
+2. When a legal text changes, update its effective date in all 11 languages.
 3. Build and check:
 
    ```sh

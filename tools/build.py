@@ -32,6 +32,7 @@ LANGS = [
     ("de", "Deutsch", "ltr", "de_DE"),
     ("fr", "Français", "ltr", "fr_FR"),
     ("es", "Español", "ltr", "es_ES"),
+    ("it", "Italiano", "ltr", "it_IT"),
     ("pt-BR", "Português (Brasil)", "ltr", "pt_BR"),
     ("ru", "Русский", "ltr", "ru_RU"),
     ("ar", "العربية", "rtl", "ar_AR"),
