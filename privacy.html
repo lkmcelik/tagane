@@ -127,7 +127,7 @@
     </tr>
     <tr>
       <th scope="row">Technical data</th>
-      <td>Request and security logs of our backend (such as IP address, time and the account involved) and counters that limit requests per hour.</td>
+      <td>Request and security logs of our backend (such as IP address, time and the account involved), the IP address and device type of your active sign-in sessions, and counters that limit requests per hour.</td>
       <td>To keep the service secure and working.</td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@
   <tbody>
     <tr><th scope="row">Supabase, Inc.</th><td>Database, sign-in, sign-in emails, storage of the exercise animations and our server functions. Your account data is stored in Supabase's EU region in Frankfurt, Germany.</td></tr>
     <tr><th scope="row">Apple</th><td>App Store purchases and subscriptions, Sign in with Apple, Apple Health on your device and the delivery of diagnostic reports. To link a purchase to your account, Tanren gives Apple a random account identifier, never your name or email. Apple's own privacy policy applies to its services.</td></tr>
-    <tr><th scope="row">Google</th><td>Google Sign-In, only if you choose it. Google's own privacy policy applies.</td></tr>
+    <tr><th scope="row">Google</th><td>Google Sign-In, only if you choose it. When you sign in with Google, Google's sign-in component in the app may collect data such as device identifiers, usage data and an approximate location derived from your IP address, for sign-in, security and analytics, under Google's own privacy policy.</td></tr>
     <tr><th scope="row">GitHub</th><td>Hosts this website.</td></tr>
   </tbody>
 </table>
@@ -184,7 +184,7 @@
 <p>We don't sell or rent your data, and we don't share it with advertisers or data brokers. Apple, Google and GitHub may process data outside your country under their own policies.</p>
 
 <h2 id="tracking">8. No ads, no tracking</h2>
-<p>Tanren has no advertising and no third-party analytics, attribution or crash-reporting tools. It doesn't use your device's advertising identifier and doesn't track you across apps and websites. This website uses no cookies and no analytics.</p>
+<p>Tanren has no advertising and adds no third-party analytics, attribution or crash-reporting tools. Only if you choose Google sign-in, Google's sign-in component may collect usage data for Google's own analytics (see the Google row above). Tanren doesn't use your device's advertising identifier and doesn't track you across apps and websites. This website uses no cookies and no analytics.</p>
 
 <h2 id="retention">9. How long we keep data</h2>
 <ul>
@@ -196,6 +196,7 @@
   <li><strong>Subscription state after you delete your account:</strong> the last state of each of your subscriptions (Apple's transaction identifiers, the product, the status and its dates) is kept without your account id or any token for 90 days; a refunded or revoked subscription until 90 days after its access ended. This stops a refund from being undone with an old purchase record.</li>
   <li><strong>Request counters:</strong> hourly; deleted with your account at the latest.</li>
   <li><strong>Backend logs:</strong> our hosting provider, Supabase, keeps the request, database and sign-in logs of our backend (such as IP address, time and the account involved) for 1 day.</li>
+  <li><strong>Sign-in sessions:</strong> our sign-in service keeps the IP address and the device type of each active sign-in session until you sign out on that device or delete your account. We use them only to keep your account secure.</li>
   <li><strong>Diagnostics:</strong> 90 days. The reports are stored without your account id.</li>
   <li><strong>Backups:</strong> our current hosting plan doesn't include database backups, so we keep no backup copies of your data.</li>
   <li><strong>On your devices:</strong> until you sign out or delete the app. A data export file is deleted from your device when you finish sharing it.</li>

@@ -59,7 +59,7 @@
     </tr>
     <tr>
       <th scope="row">Dados técnicos</th>
-      <td>Registros de solicitações e de segurança do nosso backend (como endereço IP, horário e a conta envolvida) e contadores que limitam as solicitações por hora.</td>
+      <td>Registros de solicitações e de segurança do nosso backend (como endereço IP, horário e a conta envolvida), o endereço IP e o tipo de dispositivo das suas sessões de login ativas, além de contadores que limitam as solicitações por hora.</td>
       <td>Para manter o serviço seguro e funcionando.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@
   <tbody>
     <tr><th scope="row">Supabase, Inc.</th><td>Banco de dados, login, e-mails de login, armazenamento das animações dos exercícios e nossas funções de servidor. Os dados da sua conta ficam armazenados na região da UE da Supabase, em Frankfurt, Alemanha.</td></tr>
     <tr><th scope="row">Apple</th><td>Compras e assinaturas da App Store, “Iniciar sessão com a Apple”, o app Saúde no seu dispositivo e a entrega de relatórios de diagnóstico. Para vincular uma compra à sua conta, o Tanren fornece à Apple um identificador de conta aleatório, nunca seu nome ou e-mail. A política de privacidade da própria Apple se aplica aos serviços dela.</td></tr>
-    <tr><th scope="row">Google</th><td>Login com o Google, somente se você escolher essa opção. A política de privacidade do próprio Google se aplica.</td></tr>
+    <tr><th scope="row">Google</th><td>Login com o Google, somente se você escolher essa opção. Quando você entra com o Google, o componente de login do Google integrado ao app pode coletar dados como identificadores do dispositivo, dados de uso e uma localização aproximada obtida a partir do seu endereço IP, para login, segurança e análises, conforme a política de privacidade do próprio Google.</td></tr>
     <tr><th scope="row">GitHub</th><td>Hospeda este site.</td></tr>
   </tbody>
 </table>
@@ -116,7 +116,7 @@
 <p>Não vendemos nem alugamos seus dados e não os compartilhamos com anunciantes ou corretores de dados. A Apple, o Google e o GitHub podem tratar dados fora do seu país, segundo as próprias políticas.</p>
 
 <h2 id="tracking">8. Sem anúncios, sem rastreamento</h2>
-<p>O Tanren não tem publicidade nem ferramentas de terceiros de análise, atribuição ou relatórios de falhas. Ele não usa o identificador de publicidade do seu dispositivo e não rastreia você em apps e sites. Este site não usa cookies nem ferramentas de análise.</p>
+<p>O Tanren não tem publicidade e não inclui ferramentas de terceiros de análise, atribuição ou relatórios de falhas. Somente se você escolher o login com o Google, o componente de login do Google pode coletar dados de uso para as análises do próprio Google (veja a linha do Google acima). O Tanren não usa o identificador de publicidade do seu dispositivo e não rastreia você em apps e sites. Este site não usa cookies nem ferramentas de análise.</p>
 
 <h2 id="retention">9. Por quanto tempo mantemos os dados</h2>
 <ul>
@@ -128,6 +128,7 @@
   <li><strong>Estado da assinatura depois que você exclui sua conta:</strong> o último estado de cada uma das suas assinaturas (os identificadores de transação da Apple, o produto, o status e as datas correspondentes) é mantido sem o ID da sua conta e sem nenhum token por 90 dias; no caso de uma assinatura reembolsada ou revogada, até 90 dias após o fim do acesso. Isso impede que um reembolso seja desfeito com um registro de compra antigo.</li>
   <li><strong>Contadores de solicitações:</strong> por hora; excluídos junto com sua conta, no mais tardar.</li>
   <li><strong>Registros do backend:</strong> nosso provedor de hospedagem, a Supabase, mantém os registros de solicitações, de banco de dados e de login do nosso backend (como endereço IP, horário e a conta envolvida) por 1 dia.</li>
+  <li><strong>Sessões de login:</strong> nosso serviço de login mantém o endereço IP e o tipo de dispositivo de cada sessão de login ativa até você sair da conta nesse dispositivo ou excluir sua conta. Usamos esses dados apenas para manter sua conta segura.</li>
   <li><strong>Diagnósticos:</strong> 90 dias. Os relatórios são armazenados sem o ID da sua conta.</li>
   <li><strong>Backups:</strong> nosso plano de hospedagem atual não inclui backups do banco de dados, então não mantemos cópias de backup dos seus dados.</li>
   <li><strong>Nos seus dispositivos:</strong> até você sair da conta ou apagar o app. Um arquivo de exportação de dados é apagado do seu dispositivo quando você termina de compartilhá-lo.</li>

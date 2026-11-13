@@ -127,7 +127,7 @@
     </tr>
     <tr>
       <th scope="row">Teknik veriler</th>
-      <td>Sunucularımızın istek ve güvenlik kayıtları (IP adresi, zaman ve ilgili hesap gibi) ve saat başına istek sayısını sınırlayan sayaçlar.</td>
+      <td>Sunucularımızın istek ve güvenlik kayıtları (IP adresi, zaman ve ilgili hesap gibi), etkin oturumlarının IP adresi ile cihaz türü, ayrıca saat başına istek sayısını sınırlayan sayaçlar.</td>
       <td>Hizmeti güvenli ve çalışır durumda tutmak için.</td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@
   <tbody>
     <tr><th scope="row">Supabase, Inc.</th><td>Veritabanı, giriş, giriş e-postaları, egzersiz animasyonlarının depolanması ve sunucu fonksiyonlarımız. Hesap verilerin, Supabase’in Frankfurt’taki (Almanya) AB bölgesinde saklanır.</td></tr>
     <tr><th scope="row">Apple</th><td>App Store satın alımları ve abonelikleri, “Apple ile Giriş Yap”, cihazındaki Sağlık ve tanılama raporlarının iletilmesi. Bir satın alımı hesabına bağlamak için Tanren, Apple’a rastgele bir hesap tanımlayıcısı verir; asla adını veya e-posta adresini vermez. Apple’ın hizmetleri için Apple’ın kendi gizlilik politikası geçerlidir.</td></tr>
-    <tr><th scope="row">Google</th><td>Google ile giriş, yalnızca sen seçersen. Google’ın kendi gizlilik politikası geçerlidir.</td></tr>
+    <tr><th scope="row">Google</th><td>Google ile giriş, yalnızca sen seçersen. Google ile giriş yaptığında, uygulamadaki Google giriş bileşeni oturum açma, güvenlik ve analiz amacıyla cihaz tanımlayıcıları, kullanım verileri ve IP adresinden tahmin edilen yaklaşık konum gibi verileri toplayabilir; bunlar için Google’ın kendi gizlilik politikası geçerlidir.</td></tr>
     <tr><th scope="row">GitHub</th><td>Bu web sitesini barındırır.</td></tr>
   </tbody>
 </table>
@@ -184,7 +184,7 @@
 <p>Verilerini satmayız veya kiralamayız; reklamverenlerle ya da veri komisyoncularıyla paylaşmayız. Apple, Google ve GitHub verileri kendi politikaları kapsamında ülken dışında işleyebilir.</p>
 
 <h2 id="tracking">8. Reklam yok, izleme yok</h2>
-<p>Tanren’de reklam yoktur; üçüncü taraf analiz, ilişkilendirme veya çökme raporlama araçları da yoktur. Tanren cihazının reklam tanımlayıcısını kullanmaz ve seni uygulamalar ile web siteleri arasında izlemez. Bu web sitesi çerez ve analiz aracı kullanmaz.</p>
+<p>Tanren’de reklam yoktur; Tanren üçüncü taraf analiz, ilişkilendirme veya çökme raporlama araçları da eklemez. Yalnızca Google ile girişi seçersen, Google giriş bileşeni Google’ın kendi analizleri için kullanım verileri toplayabilir (yukarıdaki Google satırına bak). Tanren cihazının reklam tanımlayıcısını kullanmaz ve seni uygulamalar ile web siteleri arasında izlemez. Bu web sitesi çerez ve analiz aracı kullanmaz.</p>
 
 <h2 id="retention">9. Verileri ne kadar süre saklıyoruz</h2>
 <ul>
@@ -196,6 +196,7 @@
   <li><strong>Hesabını sildikten sonra abonelik durumu:</strong> aboneliklerinin her birinin son durumu (Apple’ın işlem tanımlayıcıları, ürün, durum ve tarihleri) hesap kimliğin ya da herhangi bir belirteç olmadan 90 gün saklanır; iade edilen veya geçersiz kılınan bir abonelikte ise erişimin sona ermesinden sonraki 90 güne kadar. Böylece eski bir satın alma kaydıyla bir iade etkisiz hâle getirilemez.</li>
   <li><strong>İstek sayaçları:</strong> saatlik; en geç hesabınla birlikte silinir.</li>
   <li><strong>Sunucu kayıtları:</strong> barındırma sağlayıcımız Supabase, sunucularımızın istek, veritabanı ve oturum açma kayıtlarını (IP adresi, zaman ve ilgili hesap gibi) 1 gün saklar.</li>
+  <li><strong>Giriş oturumları:</strong> giriş hizmetimiz, her etkin oturumun IP adresini ve cihaz türünü, o cihazda çıkış yapana veya hesabını silene kadar saklar. Bunları yalnızca hesabını güvende tutmak için kullanırız.</li>
   <li><strong>Tanılama verileri:</strong> 90 gün. Raporlar hesap kimliğin olmadan saklanır.</li>
   <li><strong>Yedekler:</strong> mevcut barındırma planımız veritabanı yedeklerini içermez; bu nedenle verilerinin yedek kopyalarını tutmayız.</li>
   <li><strong>Cihazlarında:</strong> çıkış yapana veya uygulamayı silene kadar. Veri dışa aktarma dosyası, paylaşmayı bitirdiğinde cihazından silinir.</li>

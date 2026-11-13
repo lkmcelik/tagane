@@ -127,7 +127,7 @@
     </tr>
     <tr>
       <th scope="row">Technische Daten</th>
-      <td>Anfrage- und Sicherheitsprotokolle unseres Backends (etwa IP-Adresse, Zeitpunkt und betroffenes Konto) und Zähler, die Anfragen pro Stunde begrenzen.</td>
+      <td>Anfrage- und Sicherheitsprotokolle unseres Backends (etwa IP-Adresse, Zeitpunkt und betroffenes Konto), IP-Adresse und Gerätetyp deiner aktiven Anmeldesitzungen sowie Zähler, die Anfragen pro Stunde begrenzen.</td>
       <td>Um den Dienst sicher und funktionsfähig zu halten.</td>
     </tr>
     <tr>
@@ -176,7 +176,7 @@
   <tbody>
     <tr><th scope="row">Supabase, Inc.</th><td>Datenbank, Anmeldung, Anmelde-E-Mails, Speicherung der Übungsanimationen und unsere Serverfunktionen. Deine Kontodaten werden in der EU-Region von Supabase in Frankfurt (Deutschland) gespeichert.</td></tr>
     <tr><th scope="row">Apple</th><td>Käufe und Abos im App Store, „Mit Apple anmelden“, Apple Health auf deinem Gerät und die Zustellung von Diagnoseberichten. Um einen Kauf mit deinem Konto zu verknüpfen, übergibt Tanren Apple eine zufällige Konto-ID, nie deinen Namen oder deine E-Mail-Adresse. Für Apples Dienste gilt Apples eigene Datenschutzrichtlinie.</td></tr>
-    <tr><th scope="row">Google</th><td>Anmeldung mit Google, nur wenn du sie wählst. Es gilt Googles eigene Datenschutzerklärung.</td></tr>
+    <tr><th scope="row">Google</th><td>Anmeldung mit Google, nur wenn du sie wählst. Wenn du dich mit Google anmeldest, kann die Anmeldekomponente von Google in der App Daten wie Geräte-IDs, Nutzungsdaten und einen aus deiner IP-Adresse abgeleiteten ungefähren Standort für Anmeldung, Sicherheit und Analysen erheben; dafür gilt Googles eigene Datenschutzerklärung.</td></tr>
     <tr><th scope="row">GitHub</th><td>Hostet diese Website.</td></tr>
   </tbody>
 </table>
@@ -184,7 +184,7 @@
 <p>Wir verkaufen oder vermieten deine Daten nicht und geben sie nicht an Werbetreibende oder Datenhändler weiter. Apple, Google und GitHub verarbeiten Daten unter Umständen nach ihren eigenen Richtlinien außerhalb deines Landes.</p>
 
 <h2 id="tracking">8. Keine Werbung, kein Tracking</h2>
-<p>Tanren enthält keine Werbung und keine Analyse-, Attributions- oder Absturzberichts-Tools von Drittanbietern. Die App nutzt nicht die Werbe-ID deines Geräts und verfolgt dich nicht über Apps und Websites hinweg. Diese Website verwendet keine Cookies und keine Analysetools.</p>
+<p>Tanren enthält keine Werbung und bindet keine Analyse-, Attributions- oder Absturzberichts-Tools von Drittanbietern ein. Nur wenn du die Anmeldung mit Google wählst, kann die Anmeldekomponente von Google Nutzungsdaten für Googles eigene Analysen erheben (siehe die Zeile „Google“ oben). Die App nutzt nicht die Werbe-ID deines Geräts und verfolgt dich nicht über Apps und Websites hinweg. Diese Website verwendet keine Cookies und keine Analysetools.</p>
 
 <h2 id="retention">9. Wie lange wir Daten aufbewahren</h2>
 <ul>
@@ -196,6 +196,7 @@
   <li><strong>Abostatus nach der Löschung deines Kontos:</strong> Der letzte Stand jedes deiner Abos (Transaktions-IDs von Apple, Produkt, Status und zugehörige Datumsangaben) wird ohne deine Konto-ID und ohne Token 90 Tage lang aufbewahrt; bei einem erstatteten oder widerrufenen Abo bis 90 Tage nach dem Ende seines Zugangs. So kann eine Erstattung nicht mit einem alten Kaufdatensatz rückgängig gemacht werden.</li>
   <li><strong>Anfragezähler:</strong> stündlich; spätestens mit deinem Konto gelöscht.</li>
   <li><strong>Backend-Protokolle:</strong> Unser Hosting-Anbieter Supabase bewahrt die Anfrage-, Datenbank- und Anmeldeprotokolle unseres Backends (etwa IP-Adresse, Zeitpunkt und betroffenes Konto) 1 Tag lang auf.</li>
+  <li><strong>Anmeldesitzungen:</strong> Unser Anmeldedienst speichert die IP-Adresse und den Gerätetyp jeder aktiven Anmeldesitzung, bis du dich auf diesem Gerät abmeldest oder dein Konto löschst. Wir nutzen sie nur, um dein Konto zu schützen.</li>
   <li><strong>Diagnosedaten:</strong> 90 Tage. Die Berichte werden ohne deine Konto-ID gespeichert.</li>
   <li><strong>Sicherungskopien:</strong> Unser aktueller Hosting-Tarif enthält keine Datenbank-Backups, daher bewahren wir keine Sicherungskopien deiner Daten auf.</li>
   <li><strong>Auf deinen Geräten:</strong> bis du dich abmeldest oder die App löschst. Eine Exportdatei wird von deinem Gerät gelöscht, sobald du sie fertig geteilt hast.</li>
