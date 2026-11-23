@@ -1,7 +1,8 @@
 # tanren-site
 
 Public website for [Tanren](https://lkmcelik.github.io/tanren/), the calisthenics and workout app for iPhone, iPad and
-Apple Watch: home page, privacy policy, terms of use, support and account deletion, in the app's 11 languages.
+Apple Watch: home page, privacy policy, terms of use, support, account deletion and the open-source licenses, in the
+app's 11 languages.
 
 Hosted on **GitHub Pages** from `lkmcelik/tanren` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tanren/`.
 No custom domain yet (the brand domain is decided with Tanren's OQ-001).
@@ -11,6 +12,7 @@ No custom domain yet (the brand domain is decided with Tanren's OQ-001).
 ```
 .
 ├── src/<lang>/              # SOURCE: strings.json + one HTML fragment per page (the content of <main>)
+├── src/licenses.json        # SOURCE: the open-source notices of licenses.html (generated, see below)
 ├── tools/build.py           # builds every page from src/ (Python 3, standard library only)
 ├── index.html … *.html      # English pages (generated)
 ├── tr/ de/ fr/ es/ it/ pt-BR/ ru/ ar/ ja/ zh-Hans/   # the other languages (generated)
@@ -43,6 +45,12 @@ No trackers, no cookies, no external fonts or scripts: everything is served from
    only renders correctly on GitHub Pages).
 5. Commit and push `main`; GitHub Pages republishes in about a minute.
 
+The licenses page (`licenses.html`) lists every package in the Tanren app's `Package.resolved` with its license and
+notices, in English as each package publishes them; only the frame around them is translated. `src/licenses.json` is
+written from the app repository: `python3 -I Tools/Licenses/generate_licenses.py <SwiftPM checkouts or repository
+cache> <this repo>` (Tanren ADR-0067 amendment A7). Run it, then `tools/build.py`, whenever the app's packages change,
+and publish the site with the app build that ships them. `--check <this repo>` tells whether the page is current.
+
 In-app labels in the pages (Profile › Settings › …, Restore Purchases, Export my data, Delete account, …) must match
 the app's String Catalogs in each language. The privacy policy must match what the app does: when the app starts
 collecting something new, or a retention period is decided, change the policy first.
@@ -57,6 +65,7 @@ collecting something new, or a retention period is decided, change the policy fi
 | App Store Connect, Support URL | https://lkmcelik.github.io/tanren/support.html |
 | App Store Connect, Marketing URL | https://lkmcelik.github.io/tanren/ |
 | Google Cloud consent screen, home page and privacy policy | https://lkmcelik.github.io/tanren/ and …/privacy.html |
+| Open-source licenses (moved out of the app's Settings, 2026-11-23); linked from the terms page and every footer | https://lkmcelik.github.io/tanren/licenses.html |
 
 Localized pages live at `https://lkmcelik.github.io/tanren/<lang>/privacy.html` and so on.
 

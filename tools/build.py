@@ -8,7 +8,9 @@
 
 English pages go to the repository root, every other language to /<lang>/. Each language has
 src/<lang>/strings.json (titles, navigation, footer) and one HTML fragment per page (the content of <main>).
-Fragments use {{root}} for the path to the site root ("" or "../").
+Fragments use {{root}} for the path to the site root ("" or "../"). The licenses page's fragment has one
+{{notices}} token, where the build puts the open-source notices of src/licenses.json (written from the app
+repository by Tanren's Tools/Licenses/generate_licenses.py; the license texts stay in English).
 """
 
 from __future__ import annotations
@@ -47,7 +49,13 @@ PAGES = [
     ("privacy", "privacy.html", "title_privacy", "desc_privacy"),
     ("terms", "terms.html", "title_terms", "desc_terms"),
     ("delete-account", "delete-account.html", "title_delete", "desc_delete"),
+    ("licenses", "licenses.html", "title_licenses", "desc_licenses"),
 ]
+
+# The open-source notices on the licenses page (Tanren ADR-0067 amendment A7): a list of
+# {"name", "version", "url", "license", "text"}, the texts exactly as each package publishes them.
+NOTICES = SRC / "licenses.json"
+NOTICES_TOKEN = "{{notices}}"
 
 # Attributes whose values are translated; every other attribute must match English exactly.
 TRANSLATED_ATTRIBUTES = {"alt", "title", "aria-label"}
@@ -110,8 +118,34 @@ def shape(text: str) -> list[str]:
     return parser.items
 
 
+def load_notices() -> list[dict]:
+    return json.loads(NOTICES.read_text(encoding="utf-8"))
+
+
+def check_notices() -> list[str]:
+    try:
+        notices = load_notices()
+    except (OSError, json.JSONDecodeError) as error:
+        return [f"src/licenses.json: {error}"]
+    errors = []
+    names = set()
+    for index, notice in enumerate(notices):
+        missing = [key for key in ("name", "version", "url", "license", "text") if not str(notice.get(key, "")).strip()]
+        if missing:
+            errors.append(f"src/licenses.json: notice {index + 1} has no {', '.join(missing)}")
+            continue
+        if not notice["url"].startswith("https://"):
+            errors.append(f"src/licenses.json: {notice['name']} has no https project page")
+        if notice["name"] in names:
+            errors.append(f"src/licenses.json: {notice['name']} is listed twice")
+        names.add(notice["name"])
+    if not notices:
+        errors.append("src/licenses.json: no notices")
+    return errors
+
+
 def check(langs: list[str]) -> list[str]:
-    errors: list[str] = []
+    errors: list[str] = check_notices()
     en_strings = json.loads((SRC / "en" / "strings.json").read_text(encoding="utf-8"))
     for lang in langs:
         folder = SRC / lang
@@ -138,6 +172,8 @@ def check(langs: list[str]) -> list[str]:
             en_text = (SRC / "en" / file).read_text(encoding="utf-8")
             if text.count("{{root}}") != en_text.count("{{root}}"):
                 errors.append(f"{lang}/{file}: the number of {{{{root}}}} tokens differs from English")
+            if text.count(NOTICES_TOKEN) != (1 if file == "licenses.html" else 0):
+                errors.append(f"{lang}/{file}: {NOTICES_TOKEN} belongs once in licenses.html and nowhere else")
             if lang != "en":
                 theirs, ours = shape(text), shape(en_text)
                 if theirs != ours:
@@ -248,6 +284,7 @@ def footer(lang: str, page: str, file: str, s: dict) -> str:
           {item("privacy", "privacy.html", s["nav_privacy"])}
           {item("terms", "terms.html", s["nav_terms"])}
           {item("delete-account", "delete-account.html", s["nav_delete"])}
+          {item("licenses", "licenses.html", s["nav_licenses"])}
         </ul>
       </nav>
     </div>
@@ -264,9 +301,50 @@ def footer(lang: str, page: str, file: str, s: dict) -> str:
 """
 
 
+def notice_anchor(name: str) -> str:
+    slug = "".join(character if character.isalnum() else "-" for character in name.lower())
+    return "pkg-" + "-".join(part for part in slug.split("-") if part)
+
+
+def notices_html(s: dict) -> str:
+    """The summary table (package, version, license) and each package's text, in English, as published."""
+    notices = load_notices()
+    rows = "\n".join(
+        f'    <tr><th scope="row"><a href="#{notice_anchor(n["name"])}"><bdi>{esc(n["name"])}</bdi></a></th>'
+        f'<td><bdi>{esc(n["version"])}</bdi></td><td><bdi>{esc(n["license"])}</bdi></td></tr>'
+        for n in notices
+    )
+    table = f"""<div class="table-wrap">
+<table class="data-table licenses-table">
+  <thead>
+    <tr><th scope="col">{esc(s["licenses_package"])}</th><th scope="col">{esc(s["licenses_version"])}</th><th scope="col">{esc(s["licenses_license"])}</th></tr>
+  </thead>
+  <tbody>
+{rows}
+  </tbody>
+</table>
+</div>"""
+    sections = []
+    for n in notices:
+        anchor = notice_anchor(n["name"])
+        sections.append(
+            f"""<section class="notice" aria-labelledby="{anchor}">
+<h2 id="{anchor}"><bdi>{esc(n["name"])}</bdi></h2>
+<p class="notice-meta">{esc(s["licenses_version"])} <bdi>{esc(n["version"])}</bdi> · {esc(s["licenses_license"])} <bdi>{esc(n["license"])}</bdi> · <a href="{esc(n["url"])}" rel="noopener">{esc(s["licenses_project"])}</a></p>
+<details class="license-text">
+<summary>{esc(s["licenses_text"])}</summary>
+<pre lang="en" dir="ltr">{esc(n["text"])}</pre>
+</details>
+</section>"""
+        )
+    return table + "\n\n" + "\n\n".join(sections)
+
+
 def build_page(lang: str, direction: str, og_locale: str, page: str, file: str, title_key: str, desc_key: str) -> str:
     s = json.loads((SRC / lang / "strings.json").read_text(encoding="utf-8"))
     fragment = (SRC / lang / file).read_text(encoding="utf-8").replace("{{root}}", rel_root(lang)).strip()
+    if page == "licenses":
+        fragment = fragment.replace(NOTICES_TOKEN, notices_html(s))
     title = s[title_key] if page == "index" else f"{s[title_key]} · Tanren"
     if page == "index":
         main = f'<main id="main" tabindex="-1">\n{fragment}\n</main>\n'

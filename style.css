@@ -201,7 +201,7 @@ main:focus { outline: none; }
 .lang-menu summary::after {
   content: "";
   width: 7px; height: 7px;
-  border-inline-end: 2px solid currentColor;
+  border-right: 2px solid currentColor; /* a drawn chevron: never mirrored in RTL */
   border-bottom: 2px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
   margin-inline-start: 4px;
@@ -441,6 +441,66 @@ main:focus { outline: none; }
 }
 .contact-card h2 { margin-top: 0; }
 .contact-email { font-size: 1.25rem; font-weight: 600; margin: 0 0 8px; }
+
+/* Open-source licenses: a summary table, then each package's notice; the texts stay as published (English, left to
+   right in every language) and wrap instead of scrolling sideways. */
+.licenses-table thead th:first-child { width: 50%; }
+.licenses-table thead th:nth-child(3) { width: auto; }
+.notice h2 { margin-bottom: 4px; overflow-wrap: anywhere; }
+.notice-meta { margin: 0 0 10px; color: var(--text-secondary); font-size: 0.95rem; }
+.license-text { margin: 0 0 8px; }
+.license-text summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.license-text summary::-webkit-details-marker { display: none; }
+/* The same chevron as the language menu: down while closed, up while open. */
+.license-text summary::after {
+  content: "";
+  width: 7px; height: 7px;
+  border-right: 2px solid currentColor; /* a drawn chevron: never mirrored in RTL */
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.license-text[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+/* On narrow screens the summary stays a compact three-column table (the other tables become stacked cards). */
+@media (max-width: 640px) {
+  .data-table.licenses-table { display: table; border: 1px solid var(--line); background: var(--surface); }
+  .data-table.licenses-table thead { display: table-header-group; }
+  .data-table.licenses-table tbody { display: table-row-group; }
+  .data-table.licenses-table tr { display: table-row; margin: 0; border: 0; border-radius: 0; background: none; }
+  .data-table.licenses-table th, .data-table.licenses-table td {
+    display: table-cell;
+    width: auto;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+  .data-table.licenses-table tbody th { padding-bottom: 8px; color: inherit; }
+  .data-table.licenses-table td + td { border-top: 0; }
+  .data-table.licenses-table tr:last-child > * { border-bottom: 0; }
+}
+.data-table.licenses-table tbody th { overflow-wrap: anywhere; }
+.license-text pre {
+  margin: 6px 0 0;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
 
 .lang-grid {
   display: grid;
