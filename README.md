@@ -1,12 +1,13 @@
 # Tagane website (`tanren-site`)
 
-Public website for [Tagane](https://lkmcelik.github.io/tanren/) (formerly Tanren), the calisthenics and workout app
+Public website for [Tagane](https://lkmcelik.github.io/tagane/) (formerly Tanren), the calisthenics and workout app
 for iPhone, iPad and Apple Watch: home page, privacy policy, terms of use, support, account deletion and the
 open-source licenses, in the app's 11 languages.
 
-Hosted on **GitHub Pages** from `lkmcelik/tanren` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tanren/`.
-No custom domain yet: the app was renamed to Tagane (app repository ADR-0079), and the site keeps the `/tanren/`
-path until the `tagane.app` domain is bought (OQ-001).
+Hosted on **GitHub Pages** from `lkmcelik/tagane` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tagane/`.
+The app was renamed from Tanren to Tagane (app repository ADR-0079), and this repo was renamed from `lkmcelik/tanren`
+on 2026-11-24. The old `/tanren/` URLs keep working through `lkmcelik/tanren`, a separate repo that only holds
+redirect pages (local copy `../tanren-redirect`). No custom domain yet: that waits for `tagane.app` (OQ-001).
 
 ## Layout
 
@@ -42,7 +43,7 @@ No trackers, no cookies, no external fonts or scripts: everything is served from
    python3 tools/build.py --check    # check only
    ```
 
-4. Preview: `python3 -m http.server 8080`, then open http://localhost:8080/ (the 404 page uses `/tanren/` paths and
+4. Preview: `python3 -m http.server 8080`, then open http://localhost:8080/ (the 404 page uses `/tagane/` paths and
    only renders correctly on GitHub Pages).
 5. Commit and push `main`; GitHub Pages republishes in about a minute.
 
@@ -60,15 +61,15 @@ collecting something new, or a retention period is decided, change the policy fi
 
 | Where | URL |
 |---|---|
-| Paywall and Settings, Privacy link (`TANREN_PRIVACY_POLICY_URL`) | https://lkmcelik.github.io/tanren/privacy.html |
+| Paywall and Settings, Privacy link (`TANREN_PRIVACY_POLICY_URL`) | https://lkmcelik.github.io/tagane/privacy.html |
 | Paywall and Settings, Terms link | Apple's standard EULA (the terms page says it applies) |
-| App Store Connect, Privacy Policy URL | https://lkmcelik.github.io/tanren/privacy.html |
-| App Store Connect, Support URL | https://lkmcelik.github.io/tanren/support.html |
-| App Store Connect, Marketing URL | https://lkmcelik.github.io/tanren/ |
-| Google Cloud consent screen, home page and privacy policy | https://lkmcelik.github.io/tanren/ and …/privacy.html |
-| Open-source licenses (moved out of the app's Settings, 2026-11-23); linked from the terms page and every footer | https://lkmcelik.github.io/tanren/licenses.html |
+| App Store Connect, Privacy Policy URL | https://lkmcelik.github.io/tagane/privacy.html |
+| App Store Connect, Support URL | https://lkmcelik.github.io/tagane/support.html |
+| App Store Connect, Marketing URL | https://lkmcelik.github.io/tagane/ |
+| Google Cloud consent screen, home page and privacy policy | https://lkmcelik.github.io/tagane/ and …/privacy.html |
+| Open-source licenses (moved out of the app's Settings, 2026-11-23); linked from the terms page and every footer | https://lkmcelik.github.io/tagane/licenses.html |
 
-Localized pages live at `https://lkmcelik.github.io/tanren/<lang>/privacy.html` and so on.
+Localized pages live at `https://lkmcelik.github.io/tagane/<lang>/privacy.html` and so on.
 
 When the app is live, replace the "Coming soon to the App Store" label in `src/<lang>/index.html` with a link to
 `https://apps.apple.com/app/id6833955059`.

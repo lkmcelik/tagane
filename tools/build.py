@@ -23,8 +23,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
-BASE_URL = "https://lkmcelik.github.io/tanren/"
-BASE_PATH = "/tanren/"
+BASE_URL = "https://lkmcelik.github.io/tagane/"
+BASE_PATH = "/tagane/"
 COPYRIGHT = "© 2026 Lokman Çelik"
 
 # (code, endonym, direction, og:locale)
