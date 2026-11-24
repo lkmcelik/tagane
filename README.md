@@ -1,4 +1,4 @@
-# Tagane website (`tanren-site`)
+# Tagane website (`tagane-site`)
 
 Public website for [Tagane](https://lkmcelik.github.io/tagane/) (formerly Tanren), the calisthenics and workout app
 for iPhone, iPad and Apple Watch: home page, privacy policy, terms of use, support, account deletion and the
@@ -7,7 +7,7 @@ open-source licenses, in the app's 11 languages.
 Hosted on **GitHub Pages** from `lkmcelik/tagane` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tagane/`.
 The app was renamed from Tanren to Tagane (app repository ADR-0079), and this repo was renamed from `lkmcelik/tanren`
 on 2026-11-24. The old `/tanren/` URLs keep working through `lkmcelik/tanren`, a separate repo that only holds
-redirect pages (local copy `../tanren-redirect`). No custom domain yet: that waits for `tagane.app` (OQ-001).
+redirect pages (local copy `../tagane-redirect`). No custom domain yet: that waits for `tagane.app` (OQ-001).
 
 ## Layout
 
