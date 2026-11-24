@@ -1,4 +1,4 @@
-// Tanren website: closes the language menu on Escape or a click outside it.
+// Tagane website: closes the language menu on Escape or a click outside it.
 // The menu is a <details> element, so it works without this script too.
 (function () {
   var menus = document.querySelectorAll("details.lang-menu");

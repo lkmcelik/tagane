@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Tanren website from src/<lang>/ (standard library only).
+"""Build the Tagane website from src/<lang>/ (standard library only).
 
     python3 tools/build.py            # check every language, then write the pages
     python3 tools/build.py --check    # only check (structure of each translation against English)
@@ -10,7 +10,7 @@ English pages go to the repository root, every other language to /<lang>/. Each 
 src/<lang>/strings.json (titles, navigation, footer) and one HTML fragment per page (the content of <main>).
 Fragments use {{root}} for the path to the site root ("" or "../"). The licenses page's fragment has one
 {{notices}} token, where the build puts the open-source notices of src/licenses.json (written from the app
-repository by Tanren's Tools/Licenses/generate_licenses.py; the license texts stay in English).
+repository by its Tools/Licenses/generate_licenses.py; the license texts stay in English).
 """
 
 from __future__ import annotations
@@ -52,7 +52,7 @@ PAGES = [
     ("licenses", "licenses.html", "title_licenses", "desc_licenses"),
 ]
 
-# The open-source notices on the licenses page (Tanren ADR-0067 amendment A7): a list of
+# The open-source notices on the licenses page (the app repository's ADR-0067 amendment A7): a list of
 # {"name", "version", "url", "license", "text"}, the texts exactly as each package publishes them.
 NOTICES = SRC / "licenses.json"
 NOTICES_TOKEN = "{{notices}}"
@@ -209,7 +209,7 @@ def head(lang: str, direction: str, og_locale: str, page: str, file: str, title:
 <link rel="canonical" href="{canonical(lang, file)}">
 {alternates}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Tanren">
+<meta property="og:site_name" content="Tagane">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canonical(lang, file)}">
@@ -246,7 +246,7 @@ def header(lang: str, page: str, file: str, s: dict) -> str:
     return f"""<a class="skip-link" href="#main">{esc(s["skip_link"])}</a>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{page_href(lang, lang, "index.html")}"><img src="{root}assets/icon.svg" alt="" width="32" height="32"><span>Tanren</span></a>
+    <a class="brand" href="{page_href(lang, lang, "index.html")}"><img src="{root}assets/icon.svg" alt="" width="32" height="32"><span>Tagane</span></a>
     <nav class="site-nav" aria-label="{esc(s["nav_label"])}">
       <ul>
         {nav_item("support", "support.html", s["nav_support"])}
@@ -274,7 +274,7 @@ def footer(lang: str, page: str, file: str, s: dict) -> str:
   <div class="container">
     <div class="footer-grid">
       <div>
-        <p class="footer-brand">Tanren</p>
+        <p class="footer-brand">Tagane</p>
         <p class="footer-tagline">{esc(s["footer_tagline"])}</p>
       </div>
       <nav aria-label="{esc(s["footer_links_label"])}">
@@ -345,7 +345,7 @@ def build_page(lang: str, direction: str, og_locale: str, page: str, file: str, 
     fragment = (SRC / lang / file).read_text(encoding="utf-8").replace("{{root}}", rel_root(lang)).strip()
     if page == "licenses":
         fragment = fragment.replace(NOTICES_TOKEN, notices_html(s))
-    title = s[title_key] if page == "index" else f"{s[title_key]} · Tanren"
+    title = s[title_key] if page == "index" else f"{s[title_key]} · Tagane"
     if page == "index":
         main = f'<main id="main" tabindex="-1">\n{fragment}\n</main>\n'
     else:
@@ -371,20 +371,20 @@ def build_404() -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
-<title>Page not found · Tanren</title>
+<title>Page not found · Tagane</title>
 <link rel="icon" href="{BASE_PATH}assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{BASE_PATH}style.css">
 </head>
 <body class="page-404">
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{BASE_PATH}"><img src="{BASE_PATH}assets/icon.svg" alt="" width="32" height="32"><span>Tanren</span></a>
+    <a class="brand" href="{BASE_PATH}"><img src="{BASE_PATH}assets/icon.svg" alt="" width="32" height="32"><span>Tagane</span></a>
   </div>
 </header>
 <main id="main" class="doc">
   <div class="container narrow">
     <h1>Page not found</h1>
-    <p>This page doesn't exist. Choose your language to go back to the Tanren home page.</p>
+    <p>This page doesn't exist. Choose your language to go back to the Tagane home page.</p>
     <ul class="lang-grid">
 {links}
     </ul>

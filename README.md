@@ -1,11 +1,12 @@
-# tanren-site
+# Tagane website (`tanren-site`)
 
-Public website for [Tanren](https://lkmcelik.github.io/tanren/), the calisthenics and workout app for iPhone, iPad and
-Apple Watch: home page, privacy policy, terms of use, support, account deletion and the open-source licenses, in the
-app's 11 languages.
+Public website for [Tagane](https://lkmcelik.github.io/tanren/) (formerly Tanren), the calisthenics and workout app
+for iPhone, iPad and Apple Watch: home page, privacy policy, terms of use, support, account deletion and the
+open-source licenses, in the app's 11 languages.
 
 Hosted on **GitHub Pages** from `lkmcelik/tanren` (branch `main`, folder `/`) at `https://lkmcelik.github.io/tanren/`.
-No custom domain yet (the brand domain is decided with Tanren's OQ-001).
+No custom domain yet: the app was renamed to Tagane (app repository ADR-0079), and the site keeps the `/tanren/`
+path until the `tagane.app` domain is bought (OQ-001).
 
 ## Layout
 
@@ -17,7 +18,7 @@ No custom domain yet (the brand domain is decided with Tanren's OQ-001).
 ├── index.html … *.html      # English pages (generated)
 ├── tr/ de/ fr/ es/ it/ pt-BR/ ru/ ar/ ja/ zh-Hans/   # the other languages (generated)
 ├── 404.html, sitemap.xml    # generated
-├── style.css                # Ember & Iron palette (Tanren ADR-0056), light and dark
+├── style.css                # Ember & Iron palette (app repository ADR-0056), light and dark
 ├── script.js                # closes the language menu on Escape or an outside click
 ├── assets/                  # app icon (SVG, PNG), Barlow Condensed Bold (SIL OFL, see assets/fonts/OFL.txt)
 └── .nojekyll
@@ -45,11 +46,11 @@ No trackers, no cookies, no external fonts or scripts: everything is served from
    only renders correctly on GitHub Pages).
 5. Commit and push `main`; GitHub Pages republishes in about a minute.
 
-The licenses page (`licenses.html`) lists every package in the Tanren app's `Package.resolved` with its license and
+The licenses page (`licenses.html`) lists every package in the app's `Package.resolved` with its license and
 notices, in English as each package publishes them; only the frame around them is translated. `src/licenses.json` is
 written from the app repository: `python3 -I Tools/Licenses/generate_licenses.py <SwiftPM checkouts or repository
-cache> <this repo>` (Tanren ADR-0067 amendment A7). Run it, then `tools/build.py`, whenever the app's packages change,
-and publish the site with the app build that ships them. `--check <this repo>` tells whether the page is current.
+cache> <this repo>` (app repository ADR-0067 amendment A7). Run it, then `tools/build.py`, whenever the app's
+packages change, and publish the site with the app build that ships them. `--check <this repo>` tells whether the page is current.
 
 In-app labels in the pages (Profile › Settings › …, Restore Purchases, Export my data, Delete account, …) must match
 the app's String Catalogs in each language. The privacy policy must match what the app does: when the app starts

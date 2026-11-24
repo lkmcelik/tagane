@@ -1,5 +1,5 @@
-/* Tanren website: shared styles.
-   Palette: Ember & Iron, the app's tokens (Tanren ADR-0056). Light by default, dark with the system setting.
+/* Tagane website: shared styles.
+   Palette: Ember & Iron, the app's tokens (the app repository's ADR-0056). Light by default, dark with the system setting.
    Headings use Barlow Condensed Bold (the app's display family, SIL OFL, self-hosted, Latin only);
    body text uses the system font. No external requests. Logical properties throughout for right-to-left. */
 
